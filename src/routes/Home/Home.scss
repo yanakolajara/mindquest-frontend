@@ -1,0 +1,17 @@
+.home {
+}
+
+.gamecard {
+  display: flex;
+  flex-direction: column;
+  &__snapshot {
+    height: 200px;
+  }
+}
+
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0px 100px;
+}
