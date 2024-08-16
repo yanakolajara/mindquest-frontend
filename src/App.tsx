@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
 import './App.scss';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/game/:gameId' element={<MemoryCards />} />
       </Routes>
       <Footer />
     </div>

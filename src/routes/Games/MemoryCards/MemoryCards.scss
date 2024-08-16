@@ -1,0 +1,12 @@
+.memorycards {
+  &__container {
+    background-color: rgba($color: red, $alpha: 0.05);
+    padding: 100px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.matched {
+  background-color: rgba($color: green, $alpha: 0.5);
+}

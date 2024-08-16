@@ -1,19 +1,32 @@
 import React from 'react';
-import './Navbar.scss';
 import { useNavigate } from 'react-router-dom';
+import './Navbar.scss';
 
 type Props = {};
 
 export default function Navbar(props: Props): JSX.Element {
   const navigate = useNavigate();
+
   return (
     <nav className='navbar'>
-      <h1 className='navbar__logo' onClick={() => navigate('/')}>
+      <a className='navbar__cta navbar__logo' href='/'>
         MindQuest
-      </h1>
-      <button className='navbar__games-btn'>Games</button>
-      <button className='navbar__account-btn'>Account</button>
-      <button className='navbar__login-btn'>Login</button>
+      </a>
+      <div className='navbar__sections'>
+        <a className='navbar__cta' href='/'>
+          Games
+        </a>
+        <a className='navbar__cta' href='/'>
+          Community
+        </a>
+      </div>
+
+      <a className='navbar__cta ' href='/login'>
+        Account
+      </a>
+      {/* <button className='navbar__login-btn' onClick={() => navigate('/login')}>
+        Login
+      </button> */}
     </nav>
   );
 }
