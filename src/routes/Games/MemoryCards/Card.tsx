@@ -1,42 +1,41 @@
 import React from 'react';
 
-// type Props = {
-//   id: number;
-//   value: string;
-//   isFlipped: boolean;
-// };
+type CardType = {
+  id: number;
+  value: string;
+};
+type Props = {
+  id: number;
+  value: string;
+  setSelected: React.Dispatch<React.SetStateAction<CardType[]>>;
+  selected: CardType[];
+  lockBoard: boolean;
+};
 
 export default function Card({
   id,
   value,
-  isFlipped,
   setSelected,
+  lockBoard,
   selected,
-  isMatched,
-}: {
-  id: number;
-  value: string;
-  isFlipped: boolean;
-  setSelected: any;
-  selected: any;
-  isMatched: boolean;
-}) {
-  const cardStyle = {
+}: Props) {
+  let cardStyle = {
     border: '1px solid red',
     width: '100px',
     height: '100px',
     margin: '5px',
   };
 
-  const cardClassName = `card ${isFlipped ? 'flipped' : ''} ${
-    isMatched ? 'matched' : ''
-  }`;
+  const [state, setState] = React.useState('hidden');
 
   return (
-    <div style={cardStyle} className={cardClassName}>
+    <div style={cardStyle} className={`card card__${state}`} key={id}>
       <button
-        onClick={() => setSelected([...selected, { id, value }])}
-        type='button'
+        onClick={() => {
+          if (lockBoard) return;
+          setState('flipped');
+          setSelected([...selected, { id, value }]);
+        }}
       >
         <p>{value}</p>
       </button>
