@@ -1,21 +1,23 @@
 import React from 'react';
+import data from './CardOptions.json';
 
 interface Card {
   id: number;
   value: string;
   flipped: boolean;
+  image: string;
 }
 
 const useCards = () => {
   const [cards, setCards] = React.useState([
-    { id: 1, value: 'A', flipped: false },
-    { id: 2, value: 'A', flipped: false },
-    { id: 3, value: 'B', flipped: false },
-    { id: 4, value: 'B', flipped: false },
-    { id: 5, value: 'C', flipped: false },
-    { id: 6, value: 'C', flipped: false },
-    { id: 7, value: 'D', flipped: false },
-    { id: 8, value: 'D', flipped: false },
+    { id: 1, value: data[0].value, flipped: false, image: data[0].image },
+    { id: 2, value: data[0].value, flipped: false, image: data[0].image },
+    { id: 3, value: data[1].value, flipped: false, image: data[1].image },
+    { id: 4, value: data[1].value, flipped: false, image: data[1].image },
+    { id: 5, value: data[2].value, flipped: false, image: data[2].image },
+    { id: 6, value: data[2].value, flipped: false, image: data[2].image },
+    { id: 7, value: data[3].value, flipped: false, image: data[3].image },
+    { id: 8, value: data[3].value, flipped: false, image: data[3].image },
   ]);
   const [selectedCards, setSelectedCards] = React.useState<Card[]>([]);
   const [matchedCards, setMatchedCards] = React.useState<Card[]>([]);

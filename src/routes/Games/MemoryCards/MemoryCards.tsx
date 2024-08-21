@@ -3,6 +3,13 @@ import Card from './Card';
 import { useCards } from './useCards';
 import './MemoryCards.scss';
 
+interface Card {
+  id: number;
+  value: string;
+  flipped: boolean;
+  image: string;
+}
+
 const MemoryGame = () => {
   const { cards, handleFlip, matchedCards } = useCards();
 
@@ -15,6 +22,7 @@ const MemoryGame = () => {
             id={card.id}
             value={card.value}
             flipped={card.flipped}
+            image={card.image}
             handleFlip={handleFlip}
           />
         ))}
