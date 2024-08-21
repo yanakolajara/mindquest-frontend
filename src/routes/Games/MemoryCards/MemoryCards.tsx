@@ -4,12 +4,11 @@ import { useCards } from './useCards';
 import './MemoryCards.scss';
 
 const MemoryGame = () => {
-  const { cards, selectedCards, handleFlip, handleMatch, matchedCards } =
-    useCards();
+  const { cards, handleFlip, matchedCards } = useCards();
 
   return (
     <div className='game-screen'>
-      <p>Score : {matchedCards.length / 2}</p>
+      <h2 className='score'>Score : {matchedCards.length / 2}</h2>
       <div className='game-board'>
         {cards.map((card) => (
           <Card
@@ -19,9 +18,6 @@ const MemoryGame = () => {
             handleFlip={handleFlip}
           />
         ))}
-        {selectedCards.length === 2 && (
-          <button onClick={handleMatch}>Check Match</button>
-        )}
       </div>
     </div>
   );
