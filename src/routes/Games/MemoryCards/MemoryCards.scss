@@ -10,8 +10,17 @@
   max-width: 1000px;
 }
 
+.game-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .score {
   text-align: center;
+  margin-right: 30px;
+}
+
+.play-again {
 }
 
 .game-board {

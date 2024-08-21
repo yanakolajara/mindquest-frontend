@@ -15,7 +15,13 @@ const MemoryGame = () => {
 
   return (
     <div className='game-screen'>
-      <h2 className='score'>Score : {matchedCards.length / 2}</h2>
+      <div className='game-header'>
+        <h2 className='score'>Score : {matchedCards.length / 2}</h2>
+        {cards.length === matchedCards.length && (
+          <button className='play-again'>Play Again</button>
+        )}
+      </div>
+
       <div className='game-board'>
         {cards.map((card) => (
           <Card
