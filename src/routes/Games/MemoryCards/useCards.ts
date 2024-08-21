@@ -21,7 +21,8 @@ const useCards = () => {
   const [matchedCards, setMatchedCards] = React.useState<Card[]>([]);
 
   const handleFlip = (card: Card) => {
-    if (selectedCards.length < 2) {
+    if (selectedCards.length < 2 && card.flipped === false) {
+      console.log('here');
       setSelectedCards([...selectedCards, card]);
       setCards(
         cards.map((c) => (c.id === card.id ? { ...c, flipped: true } : c))
@@ -32,7 +33,7 @@ const useCards = () => {
   const handleMatch = () => {
     if (selectedCards.length === 2) {
       const [card1, card2] = selectedCards;
-      if (card1.value === card2.value) {
+      if (card1.value === card2.value && card1.id !== card2.id) {
         setMatchedCards([...matchedCards, card1, card2]);
         setSelectedCards([]);
       } else {
@@ -50,7 +51,11 @@ const useCards = () => {
     }
   };
 
-  React.useEffect(() => {}, []);
+  React.useEffect(() => {
+    if (selectedCards.length === 2) {
+      handleMatch();
+    }
+  }, [selectedCards]);
   return {
     cards,
     handleFlip,
