@@ -14,6 +14,8 @@ const useCards = () => {
     { id: 4, value: 'B', flipped: false },
     { id: 5, value: 'C', flipped: false },
     { id: 6, value: 'C', flipped: false },
+    { id: 7, value: 'D', flipped: false },
+    { id: 8, value: 'D', flipped: false },
   ]);
   const [selectedCards, setSelectedCards] = React.useState<Card[]>([]);
   const [matchedCards, setMatchedCards] = React.useState<Card[]>([]);
@@ -54,6 +56,7 @@ const useCards = () => {
     handleFlip,
     selectedCards,
     handleMatch,
+    matchedCards,
   };
 };
 

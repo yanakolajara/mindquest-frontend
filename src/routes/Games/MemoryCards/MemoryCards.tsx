@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Card from './Card';
 import { useCards } from './useCards';
 import './MemoryCards.scss';
 
-interface Card {
-  id: number;
-  value: string;
-  flipped: boolean;
-}
-
 const MemoryGame = () => {
-  const { cards, selectedCards, handleFlip, handleMatch } = useCards();
+  const { cards, selectedCards, handleFlip, handleMatch, matchedCards } =
+    useCards();
 
   return (
     <div className='game-screen'>
+      <p>Score : {matchedCards.length / 2}</p>
       <div className='game-board'>
         {cards.map((card) => (
           <Card
