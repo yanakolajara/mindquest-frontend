@@ -2,7 +2,7 @@ import React from 'react';
 import data from './CardOptions.json';
 
 interface Card {
-  id: number;
+  id: string;
   value: string;
   flipped: boolean;
   image: string;
@@ -19,10 +19,17 @@ const useCards = () => {
     const newCards = [];
     for (let i = 0; i < pairs; i++) {
       console.log(data[i].value);
+      const randomID = generateRandomID();
+      console.log('randomID: ', randomID);
       newCards.push(
-        { id: i, value: data[i].value, flipped: false, image: data[i].image },
         {
-          id: i + 20,
+          id: generateRandomID(),
+          value: data[i].value,
+          flipped: false,
+          image: data[i].image,
+        },
+        {
+          id: generateRandomID(),
           value: data[i].value,
           flipped: false,
           image: data[i].image,
@@ -31,7 +38,7 @@ const useCards = () => {
       console.log('loop: ', i);
       console.log('newCards: ', newCards);
     }
-    setCards(newCards);
+    setCards(newCards.sort(() => Math.random() - 0.5));
   };
 
   const handleFlip = (card: Card) => {
@@ -70,6 +77,10 @@ const useCards = () => {
     setSelectedCards([]);
     setMatchedCards([]);
     generateCards(4);
+  };
+
+  const generateRandomID = () => {
+    return Math.random().toString(36).substring(2, 15);
   };
 
   React.useEffect(() => {
