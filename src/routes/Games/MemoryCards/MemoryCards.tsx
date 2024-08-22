@@ -11,14 +11,17 @@ interface Card {
 }
 
 const MemoryGame = () => {
-  const { cards, handleFlip, matchedCards } = useCards();
+  const { cards, matchedCards, score, handleFlip, handleNextRound } =
+    useCards();
 
   return (
     <div className='game-screen'>
       <div className='game-header'>
-        <h2 className='score'>Score : {matchedCards.length / 2}</h2>
+        <h2 className='score'>Score : {score}</h2>
         {cards.length === matchedCards.length && (
-          <button className='play-again'>Play Again</button>
+          <button className='play-again' onClick={handleNextRound}>
+            Next Round
+          </button>
         )}
       </div>
 

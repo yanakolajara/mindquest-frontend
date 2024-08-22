@@ -21,6 +21,7 @@ const useCards = () => {
   ]);
   const [selectedCards, setSelectedCards] = React.useState<Card[]>([]);
   const [matchedCards, setMatchedCards] = React.useState<Card[]>([]);
+  const [score, setScore] = React.useState(0);
 
   const handleFlip = (card: Card) => {
     if (selectedCards.length < 2 && card.flipped === false) {
@@ -38,6 +39,7 @@ const useCards = () => {
       if (card1.value === card2.value && card1.id !== card2.id) {
         setMatchedCards([...matchedCards, card1, card2]);
         setSelectedCards([]);
+        setScore(score + 1);
       } else {
         setTimeout(() => {
           setCards(
@@ -53,6 +55,21 @@ const useCards = () => {
     }
   };
 
+  const handleNextRound = () => {
+    setSelectedCards([]);
+    setMatchedCards([]);
+    setCards([
+      { id: 1, value: data[0].value, flipped: false, image: data[0].image },
+      { id: 2, value: data[0].value, flipped: false, image: data[0].image },
+      { id: 3, value: data[1].value, flipped: false, image: data[1].image },
+      { id: 4, value: data[1].value, flipped: false, image: data[1].image },
+      { id: 5, value: data[2].value, flipped: false, image: data[2].image },
+      { id: 6, value: data[2].value, flipped: false, image: data[2].image },
+      { id: 7, value: data[3].value, flipped: false, image: data[3].image },
+      { id: 8, value: data[3].value, flipped: false, image: data[3].image },
+    ]);
+  };
+
   React.useEffect(() => {
     if (selectedCards.length === 2) {
       handleMatch();
@@ -60,10 +77,12 @@ const useCards = () => {
   }, [selectedCards]);
   return {
     cards,
-    handleFlip,
     selectedCards,
-    handleMatch,
     matchedCards,
+    score,
+    handleFlip,
+    handleMatch,
+    handleNextRound,
   };
 };
 
