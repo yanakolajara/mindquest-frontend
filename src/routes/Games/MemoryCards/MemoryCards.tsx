@@ -13,7 +13,6 @@ interface Card {
 const MemoryGame = () => {
   const { cards, matchedCards, score, handleFlip, handleNextRound } =
     useCards();
-
   return (
     <div className='game-screen'>
       <div className='game-header'>
@@ -24,17 +23,18 @@ const MemoryGame = () => {
           </button>
         )}
       </div>
-
       <div className='game-board'>
-        {cards.map((card) => (
-          <Card
-            id={card.id}
-            value={card.value}
-            flipped={card.flipped}
-            image={card.image}
-            handleFlip={handleFlip}
-          />
-        ))}
+        {cards.map((card) => {
+          return (
+            <Card
+              id={card.id}
+              value={card.value}
+              flipped={card.flipped}
+              image={card.image}
+              handleFlip={handleFlip}
+            />
+          );
+        })}
       </div>
     </div>
   );

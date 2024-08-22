@@ -9,19 +9,30 @@ interface Card {
 }
 
 const useCards = () => {
-  const [cards, setCards] = React.useState([
-    { id: 1, value: data[0].value, flipped: false, image: data[0].image },
-    { id: 2, value: data[0].value, flipped: false, image: data[0].image },
-    { id: 3, value: data[1].value, flipped: false, image: data[1].image },
-    { id: 4, value: data[1].value, flipped: false, image: data[1].image },
-    { id: 5, value: data[2].value, flipped: false, image: data[2].image },
-    { id: 6, value: data[2].value, flipped: false, image: data[2].image },
-    { id: 7, value: data[3].value, flipped: false, image: data[3].image },
-    { id: 8, value: data[3].value, flipped: false, image: data[3].image },
-  ]);
+  const [cards, setCards] = React.useState<Card[]>([]);
   const [selectedCards, setSelectedCards] = React.useState<Card[]>([]);
   const [matchedCards, setMatchedCards] = React.useState<Card[]>([]);
   const [score, setScore] = React.useState(0);
+
+  const generateCards = (pairs: number) => {
+    setCards([]);
+    const newCards = [];
+    for (let i = 0; i < pairs; i++) {
+      console.log(data[i].value);
+      newCards.push(
+        { id: i, value: data[i].value, flipped: false, image: data[i].image },
+        {
+          id: i + 20,
+          value: data[i].value,
+          flipped: false,
+          image: data[i].image,
+        }
+      );
+      console.log('loop: ', i);
+      console.log('newCards: ', newCards);
+    }
+    setCards(newCards);
+  };
 
   const handleFlip = (card: Card) => {
     if (selectedCards.length < 2 && card.flipped === false) {
@@ -58,21 +69,15 @@ const useCards = () => {
   const handleNextRound = () => {
     setSelectedCards([]);
     setMatchedCards([]);
-    setCards([
-      { id: 1, value: data[0].value, flipped: false, image: data[0].image },
-      { id: 2, value: data[0].value, flipped: false, image: data[0].image },
-      { id: 3, value: data[1].value, flipped: false, image: data[1].image },
-      { id: 4, value: data[1].value, flipped: false, image: data[1].image },
-      { id: 5, value: data[2].value, flipped: false, image: data[2].image },
-      { id: 6, value: data[2].value, flipped: false, image: data[2].image },
-      { id: 7, value: data[3].value, flipped: false, image: data[3].image },
-      { id: 8, value: data[3].value, flipped: false, image: data[3].image },
-    ]);
+    generateCards(4);
   };
 
   React.useEffect(() => {
     if (selectedCards.length === 2) {
       handleMatch();
+    }
+    if (cards.length === 0 && score === 0) {
+      generateCards(4);
     }
   }, [selectedCards]);
   return {
