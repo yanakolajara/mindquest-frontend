@@ -1,8 +1,7 @@
-import React from 'react';
-import Card from './components/Card';
 import { useCards } from './hooks/useCards';
 import Header from './components/Header';
 import Board from './components/Board';
+import Card from './components/Card';
 import './MemoryCards.scss';
 
 const MemoryGame = () => {
@@ -16,9 +15,7 @@ const MemoryGame = () => {
         score={score}
         handleNextRound={handleNextRound}
       />
-      <Board cards={cards} handleFlip={handleFlip}></Board>
-
-      {/* <div className='game-board'>
+      <Board>
         {cards.map((card) => {
           return (
             <Card
@@ -30,7 +27,7 @@ const MemoryGame = () => {
             />
           );
         })}
-      </div> */}
+      </Board>
     </div>
   );
 };
