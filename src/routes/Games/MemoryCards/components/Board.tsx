@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './Card';
 
 interface Card {
   id: string;
@@ -8,14 +9,14 @@ interface Card {
 }
 
 type Props = {
-  children: React.ReactNode;
   cards: Card[];
+  handleFlip: (card: Card) => void;
 };
 
-export default function Board({ children, cards }: Props) {
+export default function Board({ cards, handleFlip }: Props) {
   return (
     <main className='game-board'>
-      {/* {cards.map((card) => {
+      {cards.map((card) => {
         return (
           <Card
             id={card.id}
@@ -25,7 +26,7 @@ export default function Board({ children, cards }: Props) {
             handleFlip={handleFlip}
           />
         );
-      })} */}
+      })}
     </main>
   );
 }

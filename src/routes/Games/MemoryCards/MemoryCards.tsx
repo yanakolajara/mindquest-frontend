@@ -1,9 +1,9 @@
 import React from 'react';
 import Card from './components/Card';
 import { useCards } from './hooks/useCards';
-// import Board from './components/Board';
-import './MemoryCards.scss';
 import Header from './components/Header';
+import Board from './components/Board';
+import './MemoryCards.scss';
 
 const MemoryGame = () => {
   const { cards, matchedCards, score, handleFlip, handleNextRound } =
@@ -16,18 +16,9 @@ const MemoryGame = () => {
         score={score}
         handleNextRound={handleNextRound}
       />
-      {/* <Board cards={cards}> */}
-      {/* <Card /> */}
-      {/* </Board> */}
-      {/* <div className='game-header'>
-        <h2 className='score'>Score : {score}</h2>
-        {cards.length === matchedCards.length && (
-          <button className='play-again' onClick={handleNextRound}>
-            Next Round
-          </button>
-        )}
-      </div> */}
-      <div className='game-board'>
+      <Board cards={cards} handleFlip={handleFlip}></Board>
+
+      {/* <div className='game-board'>
         {cards.map((card) => {
           return (
             <Card
@@ -39,7 +30,7 @@ const MemoryGame = () => {
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
