@@ -15,35 +15,31 @@ const useCards = () => {
   const [score, setScore] = React.useState(0);
 
   const generateCards = (pairs: number) => {
-    setCards([]);
     const newCards = [];
     for (let i = 0; i < pairs; i++) {
-      console.log(data[i].value);
-      const randomID = generateRandomID();
-      console.log('randomID: ', randomID);
       newCards.push(
         {
-          id: generateRandomID(),
+          id: Math.random().toString(36).substring(2, 15),
           value: data[i].value,
-          flipped: false,
+          flipped: true,
           image: data[i].image,
         },
         {
-          id: generateRandomID(),
+          id: Math.random().toString(36).substring(2, 15),
           value: data[i].value,
-          flipped: false,
+          flipped: true,
           image: data[i].image,
         }
       );
-      console.log('loop: ', i);
-      console.log('newCards: ', newCards);
+      setCards(newCards.sort(() => Math.random() - 0.5));
     }
-    setCards(newCards.sort(() => Math.random() - 0.5));
+    if (newCards.length > 0) {
+      hideCards(newCards);
+    }
   };
 
   const handleFlip = (card: Card) => {
     if (selectedCards.length < 2 && card.flipped === false) {
-      console.log('here');
       setSelectedCards([...selectedCards, card]);
       setCards(
         cards.map((c) => (c.id === card.id ? { ...c, flipped: true } : c))
@@ -79,8 +75,14 @@ const useCards = () => {
     generateCards(4);
   };
 
-  const generateRandomID = () => {
-    return Math.random().toString(36).substring(2, 15);
+  const hideCards = (newCards: Card[]) => {
+    setTimeout(() => {
+      setCards(
+        newCards.map((c) => {
+          return { ...c, flipped: false };
+        })
+      );
+    }, 1500);
   };
 
   React.useEffect(() => {
