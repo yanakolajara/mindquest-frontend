@@ -36,8 +36,8 @@
   max-width: 100%;
   max-height: 100%;
   border-radius: 1rem;
+  background-color: #e5e5f7;
   &__hidden {
-    background-color: #e5e5f7;
     opacity: 0.6;
     background-image: linear-gradient(135deg, #4c4c70 25%, transparent 25%),
       linear-gradient(225deg, #4c4c70 25%, transparent 25%),
@@ -50,8 +50,14 @@
       0px 0px 5px rgba($color: #000000, $alpha: 0.7);
   }
   &__flipped {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 2px rgba($color: #000000, $alpha: 0.7) inset,
+      0px 0px 3px rgba($color: #000000, $alpha: 0.5);
     img {
-      width: 100%;
+      height: 90%;
+      width: 90%;
     }
   }
 }
