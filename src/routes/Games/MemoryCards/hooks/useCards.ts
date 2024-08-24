@@ -1,5 +1,5 @@
 import React from 'react';
-import data from './CardOptions.json';
+import data from '../data/CardOptions.json';
 
 interface Card {
   id: string;
