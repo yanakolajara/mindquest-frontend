@@ -86,13 +86,10 @@ const useCards = () => {
   };
 
   React.useEffect(() => {
-    if (selectedCards.length === 2) {
-      handleMatch();
-    }
-    if (cards.length === 0 && score === 0) {
-      generateCards(4);
-    }
+    if (selectedCards.length === 2) handleMatch();
+    if (cards.length === 0 && score === 0) generateCards(4);
   }, [selectedCards]);
+
   return {
     cards,
     selectedCards,
