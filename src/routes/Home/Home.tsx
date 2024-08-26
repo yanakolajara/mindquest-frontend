@@ -1,17 +1,21 @@
 import React from 'react';
-import GameCard from './GameCard';
+import GameCard from './components/GameCard';
 import './Home.scss';
+import games from '../../data/games.json';
+
 type Props = {};
 
 export default function Home(props: Props): JSX.Element {
   return (
     <main className='home'>
       <div className='games-container'>
-        <GameCard />
-        <GameCard />
-        <GameCard />
-        <GameCard />
-        <GameCard />
+        {games.map((game) => (
+          <GameCard
+            title={game.title}
+            snapshot={game.snapshot}
+            route={game.route}
+          />
+        ))}
       </div>
     </main>
   );

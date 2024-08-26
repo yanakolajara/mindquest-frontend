@@ -15,19 +15,18 @@ const MemoryGame = () => {
         score={score}
         handleNextRound={handleNextRound}
       />
-      <Board>
-        {cards.map((card) => {
-          return (
-            <Card
-              id={card.id}
-              value={card.value}
-              flipped={card.flipped}
-              image={card.image}
-              handleFlip={handleFlip}
-            />
-          );
-        })}
-      </Board>
+      <Board
+        cards={cards}
+        renderCard={(id, value, flipped, image) => (
+          <Card
+            id={id}
+            value={value}
+            flipped={flipped}
+            image={image}
+            handleFlip={handleFlip}
+          />
+        )}
+      />
     </div>
   );
 };

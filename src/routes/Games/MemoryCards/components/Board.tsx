@@ -1,10 +1,28 @@
 import React from 'react';
 import './Board.scss';
 
+interface Card {
+  id: string;
+  value: string;
+  flipped: boolean;
+  image: string;
+}
 type Props = {
-  children?: React.ReactNode;
+  cards: Card[];
+  renderCard: (
+    id: string,
+    value: string,
+    flipped: boolean,
+    image: string
+  ) => JSX.Element;
 };
 
-export default function Board({ children }: Props) {
-  return <main className='game-board'>{children}</main>;
+export default function Board({ cards, renderCard }: Props) {
+  return (
+    <main className='game-board'>
+      {cards.map((card) =>
+        renderCard(card.id, card.value, card.flipped, card.image)
+      )}
+    </main>
+  );
 }
