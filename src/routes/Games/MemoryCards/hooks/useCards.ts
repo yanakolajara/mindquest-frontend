@@ -72,7 +72,7 @@ const useCards = () => {
   const handleNextRound = () => {
     setSelectedCards([]);
     setMatchedCards([]);
-    generateCards(4);
+    generateCards(6);
   };
 
   const hideCards = (newCards: Card[]) => {
