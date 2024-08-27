@@ -11,23 +11,12 @@ type Props = {
   cards: Card[];
   matchedCards: Card[];
   score: number;
-  handleNextRound: () => void;
 };
 
-export default function Header({
-  cards,
-  matchedCards,
-  score,
-  handleNextRound,
-}: Props) {
+export default function Header({ cards, matchedCards, score }: Props) {
   return (
     <header className='game-header'>
       <h2 className='score'>Score : {score}</h2>
-      {cards.length === matchedCards.length && (
-        <button className='play-again' onClick={handleNextRound}>
-          Next Round
-        </button>
-      )}
     </header>
   );
 }
