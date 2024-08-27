@@ -22,5 +22,13 @@
   {
     "value": "bananas",
     "image": "bananas.png"
+  },
+  {
+    "value": "apple",
+    "image": "apple.png"
+  },
+  {
+    "value": "pineapple",
+    "image": "pineapple.png"
   }
 ]
