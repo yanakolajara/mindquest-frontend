@@ -1,6 +1,6 @@
 import './Card.scss';
 
-interface Card {
+interface CardType {
   id: string;
   value: string;
   flipped: boolean;
@@ -10,7 +10,7 @@ type Props = {
   id: string;
   value: string;
   flipped: boolean;
-  handleFlip: (card: Card) => void;
+  handleFlip: (card: CardType) => void;
   image: string;
 };
 

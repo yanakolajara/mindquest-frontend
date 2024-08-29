@@ -1,14 +1,14 @@
 import React from 'react';
 import './Board.scss';
 
-interface Card {
+interface CardType {
   id: string;
   value: string;
   flipped: boolean;
   image: string;
 }
 type Props = {
-  cards: Card[];
+  cards: CardType[];
   renderCard: (
     id: string,
     value: string,
