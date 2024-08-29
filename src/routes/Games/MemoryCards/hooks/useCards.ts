@@ -64,7 +64,7 @@ const useCards = () => {
     if (card1.value === card2.value) {
       setMatchedCards([...matchedCards, card1, card2]);
       setSelectedCards([]);
-      setScore(score + 1);
+      setScore(score + 50);
     } else {
       setTimeout(() => {
         setCards(
@@ -75,15 +75,31 @@ const useCards = () => {
           )
         );
         setSelectedCards([]);
+        setScore(score - 10);
       }, 1000);
     }
   };
 
   const getTimeResult = (): number => timeElapsed.resultTime;
 
+  const addTimeScore = (timerResult: number) => {
+    if (timerResult <= 30) {
+      setScore(score + 500);
+    } else if (timerResult <= 60) {
+      setScore(score + 400);
+    } else if (timerResult <= 120) {
+      setScore(score + 300);
+    } else if (timerResult <= 180) {
+      setScore(score + 200);
+    } else if (timerResult <= 240) {
+      setScore(score + 100);
+    }
+  };
+
   React.useEffect(() => {
     if (selectedCards.length === 2) handleMatch();
     if (matchedCards.length === cards.length && !!cards.length) {
+      setScore(score + 200);
       const endTime = Date.now();
       setTimeElapsed({ ...timeElapsed, endTime: endTime });
     }
@@ -91,9 +107,11 @@ const useCards = () => {
 
   React.useEffect(() => {
     if (timeElapsed.endTime && !timeElapsed.resultTime) {
+      let resultTime = (timeElapsed.endTime - timeElapsed.startTime) / 1000;
+      addTimeScore(resultTime);
       setTimeElapsed({
         ...timeElapsed,
-        resultTime: (timeElapsed.endTime - timeElapsed.startTime) / 1000,
+        resultTime: resultTime,
       });
     }
   }, [timeElapsed]);
