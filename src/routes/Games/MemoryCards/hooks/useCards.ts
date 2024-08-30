@@ -117,7 +117,7 @@ const useCards = () => {
   }, [timeElapsed]);
 
   React.useEffect(() => {
-    generateCards(4);
+    generateCards(8);
   }, []);
 
   return {

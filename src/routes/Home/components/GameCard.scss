@@ -28,13 +28,12 @@
   &__buttons {
     height: 40px;
     display: flex;
-    box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.5);
     border-radius: 0 0 1rem 1rem;
     .info,
     .play {
       font-size: 20px;
-      text-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.5);
       border: 0;
+      border: 1px solid rgba($color: #000000, $alpha: 0.2);
       width: 50%;
       color: white;
     }

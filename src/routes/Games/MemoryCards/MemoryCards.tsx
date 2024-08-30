@@ -9,7 +9,6 @@ const MemoryGame = () => {
   const { cards, matchedCards, score, handleFlip, getTimeResult } = useCards();
   return (
     <div className='game-screen'>
-      <Header cards={cards} matchedCards={matchedCards} score={score} />
       {!getTimeResult() ? (
         <Board
           cards={cards}
@@ -24,7 +23,7 @@ const MemoryGame = () => {
           )}
         />
       ) : (
-        <Results timeResult={getTimeResult} />
+        <Results timeResult={getTimeResult} score={score} />
       )}
     </div>
   );
