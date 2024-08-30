@@ -1,10 +1,14 @@
 .navbar {
   display: grid;
+
   grid-template-columns: 220px auto 168px;
   height: 96px;
   flex-shrink: 0;
   padding: 0px 80px;
+  border-radius: 0 0 1rem 1rem;
   background: var(--secondary_color, #94b6b6);
+  box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.5),
+    0px 0px 5px rgba($color: #000000, $alpha: 0.5) inset;
 
   &__cta {
     display: flex;
