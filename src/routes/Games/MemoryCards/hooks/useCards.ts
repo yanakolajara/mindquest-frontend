@@ -14,6 +14,7 @@ const useCards = () => {
   const [selectedCards, setSelectedCards] = React.useState<Card[]>([]);
   const [matchedCards, setMatchedCards] = React.useState<Card[]>([]);
   const [score, setScore] = React.useState(0);
+  const [wrongMatches, setWrongMatches] = React.useState<number>(0);
   const [timeElapsed, setTimeElapsed] = React.useState({
     startTime: 0,
     endTime: 0,
@@ -76,6 +77,7 @@ const useCards = () => {
         );
         setSelectedCards([]);
         setScore(score - 10);
+        setWrongMatches(wrongMatches + 1);
       }, 1000);
     }
   };
@@ -124,6 +126,7 @@ const useCards = () => {
     cards,
     selectedCards,
     matchedCards,
+    wrongMatches,
     score,
     handleFlip,
     handleMatch,

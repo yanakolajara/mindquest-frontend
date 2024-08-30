@@ -6,7 +6,7 @@ import Results from './components/Results';
 import './MemoryCards.scss';
 
 const MemoryGame = () => {
-  const { cards, matchedCards, score, handleFlip, getTimeResult } = useCards();
+  const { cards, wrongMatches, score, handleFlip, getTimeResult } = useCards();
   return (
     <div className='game-screen'>
       {!getTimeResult() ? (
@@ -23,7 +23,11 @@ const MemoryGame = () => {
           )}
         />
       ) : (
-        <Results timeResult={getTimeResult} score={score} />
+        <Results
+          timeResult={getTimeResult}
+          score={score}
+          wrongMatches={wrongMatches}
+        />
       )}
     </div>
   );
