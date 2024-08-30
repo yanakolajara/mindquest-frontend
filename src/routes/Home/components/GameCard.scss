@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   background: #e2e2e2;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   &__snapshot {
     height: 200px;
     background-color: black;
+    border-radius: 1rem 1rem 0 0;
   }
   &__title {
     margin: 0px;
@@ -27,7 +28,19 @@
     display: flex;
     .info,
     .play {
+      font-size: 20px;
+      text-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.5);
+      border: 0;
       width: 50%;
+      color: white;
+    }
+    .play {
+      border-radius: 0 0 1rem 0;
+      background-color: #46b86a;
+    }
+    .info {
+      background-color: #47c6c6;
+      border-radius: 0 0 0 1rem;
     }
   }
 }
