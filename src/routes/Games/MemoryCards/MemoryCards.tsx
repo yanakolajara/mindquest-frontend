@@ -1,5 +1,4 @@
 import { useCards } from './hooks/useCards';
-import Header from './components/Header';
 import Board from './components/Board';
 import Card from './components/Card';
 import Results from './components/Results';
