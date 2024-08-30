@@ -31,9 +31,10 @@ export default function GameCard({ title, snapshot, route, factors }: Props) {
       </p>
     );
   });
+  const cardImage = require(`../../../assets/${snapshot}`);
   return (
     <div className='gamecard'>
-      <img className='gamecard__snapshot' src='' alt='' />
+      <img className='gamecard__snapshot' src={cardImage} alt='' />
       <h3 className='gamecard__title'>{title}</h3>
       <div className='gamecard__info'>{displaySkills}</div>
       <div className='gamecard__buttons'>
