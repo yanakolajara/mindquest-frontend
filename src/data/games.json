@@ -2,6 +2,31 @@
   {
     "title": "Memory Cards",
     "snapshot": "./assets/test.jpg",
-    "route": "/game/1"
+    "route": "/game/1",
+    "description": "",
+    "gameFactors": [
+      {
+        "factor": "Skills",
+        "value": [
+          "Working Memory",
+          "Attention",
+          "Visual Processing",
+          "Cognitive Flexibility"
+        ]
+      },
+      {
+        "factor": "Difficulty",
+        "value": "Medium"
+      },
+      {
+        "factor": "Duration",
+        "value": "30s - 4m"
+      },
+
+      {
+        "factor": "Scoring",
+        "value": "Timed, Accuracy"
+      }
+    ]
   }
 ]

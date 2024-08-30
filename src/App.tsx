@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import NotFound from './routes/NotFound/NotFound';
 import Home from './routes/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -17,6 +18,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/game/:gameId' element={<MemoryCards />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
