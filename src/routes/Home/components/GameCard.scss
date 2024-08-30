@@ -3,10 +3,12 @@
   flex-direction: column;
   background: #e2e2e2;
   border-radius: 1rem;
+  box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.5);
   &__snapshot {
     height: 200px;
     background-color: black;
     border-radius: 1rem 1rem 0 0;
+    box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.5);
   }
   &__title {
     margin: 0px;
@@ -26,6 +28,8 @@
   &__buttons {
     height: 40px;
     display: flex;
+    box-shadow: 0px 0px 5px rgba($color: #000000, $alpha: 0.5);
+    border-radius: 0 0 1rem 1rem;
     .info,
     .play {
       font-size: 20px;
