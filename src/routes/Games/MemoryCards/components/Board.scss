@@ -17,3 +17,13 @@
     gap: 10px;
   }
 }
+
+@media (max-width: 600px) {
+  .game-board {
+    &__16-cards {
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      grid-auto-rows: 22%;
+      gap: 5px;
+    }
+  }
+}

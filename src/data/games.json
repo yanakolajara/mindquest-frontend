@@ -7,12 +7,7 @@
     "gameFactors": [
       {
         "factor": "Skills",
-        "value": [
-          "Working Memory",
-          "Attention",
-          "Visual Processing",
-          "Cognitive Flexibility"
-        ]
+        "value": ["Memory", "Attention", "Visual Processing"]
       },
       {
         "factor": "Difficulty",

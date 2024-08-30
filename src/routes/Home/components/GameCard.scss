@@ -39,10 +39,10 @@
     }
     .play {
       border-radius: 0 0 1rem 0;
-      background-color: #46b86a;
+      background-color: #50a46a;
     }
     .info {
-      background-color: #47c6c6;
+      background-color: var(--secondary_color, #94b6b6);
       border-radius: 0 0 0 1rem;
     }
   }

@@ -1,6 +1,5 @@
 .navbar {
   display: grid;
-
   grid-template-columns: 220px auto 168px;
   height: 96px;
   flex-shrink: 0;
@@ -26,5 +25,24 @@
   &__sections {
     display: flex;
     flex-direction: row;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    height: 96px;
+    flex-shrink: 0;
+    padding: 0px 20px;
+    &__sections {
+      display: flex;
+      flex-direction: column;
+    }
+    padding: 0px 10px;
+    &__cta {
+      font-size: 18px;
+      padding: 5px;
+    }
   }
 }

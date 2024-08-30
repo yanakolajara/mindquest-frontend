@@ -15,6 +15,7 @@ type Props = {
 };
 
 export default function GameCard({ title, snapshot, route, factors }: Props) {
+  const cardImage = require(`../../../assets/${snapshot}`);
   const joinWithCommas = (array: string[]) => {
     if (array.length === 0) return '';
     if (array.length === 1) return array[0];
@@ -31,7 +32,6 @@ export default function GameCard({ title, snapshot, route, factors }: Props) {
       </p>
     );
   });
-  const cardImage = require(`../../../assets/${snapshot}`);
   return (
     <div className='gamecard'>
       <img className='gamecard__snapshot' src={cardImage} alt='' />
