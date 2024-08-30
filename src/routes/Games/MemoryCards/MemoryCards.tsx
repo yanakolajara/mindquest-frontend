@@ -2,8 +2,8 @@ import { useCards } from './hooks/useCards';
 import Header from './components/Header';
 import Board from './components/Board';
 import Card from './components/Card';
-import './MemoryCards.scss';
 import Results from './components/Results';
+import './MemoryCards.scss';
 
 const MemoryGame = () => {
   const { cards, matchedCards, score, handleFlip, getTimeResult } = useCards();

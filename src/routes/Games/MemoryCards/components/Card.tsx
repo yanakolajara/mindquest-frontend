@@ -15,7 +15,7 @@ type Props = {
 };
 
 export default function Card({ id, value, flipped, handleFlip, image }: Props) {
-  const cardImage = require(`../assets/${image}`) || '';
+  const cardImage = require(`./assets/${image}`);
   return (
     <div
       key={id}
