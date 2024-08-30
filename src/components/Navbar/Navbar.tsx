@@ -1,11 +1,11 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import './Navbar.scss';
 
 type Props = {};
 
 export default function Navbar(props: Props): JSX.Element {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <nav className='navbar'>
