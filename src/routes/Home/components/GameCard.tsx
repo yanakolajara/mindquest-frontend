@@ -23,11 +23,11 @@ export default function GameCard({ title, snapshot, route, factors }: Props) {
   const displaySkills = factors.map((factor) => {
     return factor.factor === 'Skills' ? (
       <p className='gamecard__info-item'>
-        {factor.factor} : {joinWithCommas(factor.value as string[])}
+        {factor.factor}: {joinWithCommas(factor.value as string[])}
       </p>
     ) : (
       <p className='gamecard__info-item'>
-        {factor.factor} : {factor.value}
+        {factor.factor}: {factor.value}
       </p>
     );
   });
