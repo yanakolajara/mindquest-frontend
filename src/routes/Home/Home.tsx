@@ -1,7 +1,8 @@
 import React from 'react';
 import GameCard from './components/GameCard';
-import './Home.scss';
 import games from '../../data/games.json';
+import Info from './components/Info';
+import './Home.scss';
 
 type Props = {};
 
@@ -15,7 +16,12 @@ export default function Home(props: Props): JSX.Element {
             snapshot={game.snapshot}
             route={game.route}
             factors={game.gameFactors}
-            description={game.description}
+            renderModal={(setIsModalOpen) => (
+              <Info
+                description={game.description}
+                setIsModalOpen={setIsModalOpen}
+              />
+            )}
           />
         ))}
       </div>

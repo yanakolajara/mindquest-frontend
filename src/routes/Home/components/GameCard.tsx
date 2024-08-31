@@ -1,5 +1,4 @@
 import React from 'react';
-import { formatJsonText } from '../../../utils/formatting';
 import './GameCard.scss';
 
 type FactoyType = {
@@ -13,7 +12,7 @@ type Props = {
   snapshot: string;
   route: string;
   factors: FactoyType[];
-  description: string;
+  renderModal: (setIsModalOpen: (isModalOpen: boolean) => void) => JSX.Element;
 };
 
 export default function GameCard({
@@ -21,9 +20,10 @@ export default function GameCard({
   snapshot,
   route,
   factors,
-  description,
+  renderModal,
 }: Props) {
   const cardImage = require(`../../../assets/${snapshot}`);
+  const [isModalOpen, setIsModalOpen] = React.useState<Boolean>(false);
   const joinWithCommas = (array: string[]) => {
     if (array.length === 0) return '';
     if (array.length === 1) return array[0];
@@ -42,13 +42,14 @@ export default function GameCard({
   });
   return (
     <div className='gamecard'>
+      {isModalOpen && renderModal(setIsModalOpen)}
       <img className='gamecard__snapshot' src={cardImage} alt='' />
       <h3 className='gamecard__title'>{title}</h3>
       <div className='gamecard__info'>{displaySkills}</div>
       <div className='gamecard__buttons'>
         <button
           className='info btn'
-          onClick={() => console.log(formatJsonText(description))}
+          onClick={() => setIsModalOpen(!isModalOpen)}
         >
           Info
         </button>
