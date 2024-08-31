@@ -15,6 +15,7 @@ export default function Home(props: Props): JSX.Element {
             snapshot={game.snapshot}
             route={game.route}
             factors={game.gameFactors}
+            description={game.description}
           />
         ))}
       </div>

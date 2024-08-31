@@ -18,7 +18,7 @@ export default function Navbar(props: Props): JSX.Element {
         <a className='navbar__cta' href='/'>
           Games
         </a>
-        <a className='navbar__cta' href='/'>
+        <a className='navbar__cta' href='/community'>
           Community
         </a>
       </div>

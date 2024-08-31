@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
+import Community from './routes/Community/Community';
 import './App.scss';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/game/:gameId' element={<MemoryCards />} />
+        <Route path='/community' element={<Community />} />
+        <Route path='/memory-cards' element={<MemoryCards />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       {/* <Footer /> */}

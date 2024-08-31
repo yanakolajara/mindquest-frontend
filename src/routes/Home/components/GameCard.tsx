@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatJsonText } from '../../../utils/formatting';
 import './GameCard.scss';
 
 type FactoyType = {
@@ -12,9 +13,16 @@ type Props = {
   snapshot: string;
   route: string;
   factors: FactoyType[];
+  description: string;
 };
 
-export default function GameCard({ title, snapshot, route, factors }: Props) {
+export default function GameCard({
+  title,
+  snapshot,
+  route,
+  factors,
+  description,
+}: Props) {
   const cardImage = require(`../../../assets/${snapshot}`);
   const joinWithCommas = (array: string[]) => {
     if (array.length === 0) return '';
@@ -40,7 +48,7 @@ export default function GameCard({ title, snapshot, route, factors }: Props) {
       <div className='gamecard__buttons'>
         <button
           className='info btn'
-          onClick={() => (window.location.href = route)}
+          onClick={() => console.log(formatJsonText(description))}
         >
           Info
         </button>
