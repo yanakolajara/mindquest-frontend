@@ -1,6 +1,6 @@
 import React from 'react';
-import GameCard from './components/GameCard';
 import games from '../../data/games.json';
+import GameCard from './components/GameCard';
 import Info from './components/Info';
 import './Home.scss';
 
