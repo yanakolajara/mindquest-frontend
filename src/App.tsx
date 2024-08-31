@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import NotFound from './routes/NotFound/NotFound';
 import Home from './routes/Home/Home';
 import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
+// import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
@@ -20,7 +20,7 @@ function App() {
         <Route path='/game/:gameId' element={<MemoryCards />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
