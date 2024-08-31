@@ -1,6 +1,6 @@
 .navbar {
   display: grid;
-  grid-template-columns: 220px auto 300px;
+  grid-template-columns: 20% auto 25%;
   height: 80px;
   flex-shrink: 0;
   background: var(--secondary_color, #94b6b6);
@@ -58,11 +58,39 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .navbar {
+    grid-template-columns: 25% auto 30%;
+    &__cta {
+      font-size: 20px;
+    }
+    &__logo {
+      &-text {
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    grid-template-columns: 25% auto 35%;
+    &__cta {
+      font-size: 18px;
+    }
+    &__logo {
+      &-text {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
 @media (max-width: 600px) {
   .navbar {
     grid-template-columns: 30% 70%;
     height: 63px;
-    padding: 0px 20px;
+    padding: 0px 25px;
     &__logo {
       &-text {
         font-size: 24px;

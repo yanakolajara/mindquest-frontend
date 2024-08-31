@@ -11,17 +11,6 @@ html {
 
 .App {
   display: grid;
-  grid-template-rows: 100px auto 200px;
+  grid-template-rows: 80px auto;
   min-height: 120vh;
-  .navbar {
-  }
-  .app-content {
-  }
-  .footer {
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .App {
-  }
 }
