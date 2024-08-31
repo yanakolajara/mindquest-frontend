@@ -9,9 +9,11 @@ export default function Navbar(props: Props): JSX.Element {
 
   return (
     <nav className='navbar'>
-      <a className='navbar__cta navbar__logo' href='/'>
-        MindQuest
-      </a>
+      <div className='navbar__logo'>
+        <a className='navbar__cta navbar__logo-text' href='/'>
+          MindQuest
+        </a>
+      </div>
       <div className='navbar__sections'>
         <a className='navbar__cta' href='/'>
           Games
@@ -20,13 +22,17 @@ export default function Navbar(props: Props): JSX.Element {
           Community
         </a>
       </div>
-
-      <a className='navbar__cta ' href='/login'>
-        Account
-      </a>
-      {/* <button className='navbar__login-btn' onClick={() => navigate('/login')}>
-        Login
-      </button> */}
+      <div className='navbar__account'>
+        {/* <a className='navbar__cta ' href='/login'>
+          Account
+        </a> */}
+        <a className='navbar__cta login-btn' href='/login'>
+          Log In
+        </a>
+        <a className='navbar__cta signup-btn' href='/login'>
+          Sign Up
+        </a>
+      </div>
     </nav>
   );
 }
