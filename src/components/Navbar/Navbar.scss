@@ -53,22 +53,49 @@
       }
     }
   }
+  &__icons {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
   .navbar {
-    display: flex;
-
-    flex-shrink: 0;
+    grid-template-columns: 30% 70%;
+    height: 63px;
     padding: 0px 20px;
-    &__sections {
-      display: flex;
-      flex-direction: column;
+    &__logo {
+      &-text {
+        font-size: 24px;
+      }
     }
-    padding: 0px 10px;
-    &__cta {
-      font-size: 18px;
-      padding: 5px;
+
+    &__icons {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      height: 100%;
+
+      &-account {
+        .icon {
+          font-size: 40px;
+          color: white;
+          margin: 0px 10px;
+        }
+      }
+      &-menu {
+        .icon {
+          font-size: 40px;
+          color: white;
+          margin: 0px 10px;
+        }
+      }
+    }
+    &__sections {
+      display: none;
+    }
+
+    &__account {
+      display: none;
     }
   }
 }

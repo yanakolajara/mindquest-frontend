@@ -1,5 +1,8 @@
 import React from 'react';
 // import { useNavigate } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
+import { IoMenu } from 'react-icons/io5';
+
 import './Navbar.scss';
 
 type Props = {};
@@ -15,6 +18,7 @@ export default function Navbar(props: Props): JSX.Element {
         </a>
       </div>
       <div className='navbar__sections'>
+        <div className='navbar__routes'></div>
         <a className='navbar__cta' href='/'>
           Games
         </a>
@@ -31,6 +35,14 @@ export default function Navbar(props: Props): JSX.Element {
         </a>
         <a className='navbar__cta signup-btn' href='/login'>
           Sign Up
+        </a>
+      </div>
+      <div className='navbar__icons'>
+        <a className='navbar__icons-account' href='/'>
+          <FaUser className='icon' />
+        </a>
+        <a className='navbar__icons-menu' href='/'>
+          <IoMenu className='icon' />
         </a>
       </div>
     </nav>
