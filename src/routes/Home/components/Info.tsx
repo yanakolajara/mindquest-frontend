@@ -10,7 +10,7 @@ type Props = {
 export default function Info({ description, setIsModalOpen }: Props) {
   return (
     <div className='modal-info'>
-      <article className='modal-info__article'>
+      <article className='modal-info__container'>
         <button
           className='close-btn'
           onClick={() => {
