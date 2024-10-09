@@ -9,16 +9,28 @@ type LoginInfo = {
   password: string;
 };
 
-const useAuth = (): [any] => {
+const useAuth = () => {
   const [authState, setAuthState] = React.useState<AuthState>({
     isAuthenticated: false,
     userData: {},
   });
-  const handleLogin = ({ email, password }: LoginInfo) => {
+
+  const testApiLogin = ({ email, password }: LoginInfo) => {
+    return 'FDaVfg654fdwgf';
+  };
+  const handleLogin = async ({ email, password }: LoginInfo) => {
+    const authState = await testApiLogin({ email, password });
+    // .then((res) => )
+    if (authState) {
+      await setAuthState({
+        isAuthenticated: true,
+        userData: 'test',
+      });
+    }
     return authState;
   };
 
-  return [handleLogin];
+  return { handleLogin };
 };
 
 export { useAuth };

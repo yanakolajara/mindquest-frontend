@@ -6,8 +6,9 @@ import Navbar from './components/Navbar/Navbar';
 // import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
-import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
 import Community from './routes/Community/Community';
+import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
+import QuickColor from './routes/Games/QuickColor/QuickColor';
 import './App.scss';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/community' element={<Community />} />
         <Route path='/memory-cards' element={<MemoryCards />} />
+        <Route path='/quick-color' element={<QuickColor />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       {/* <Footer /> */}
