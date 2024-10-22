@@ -1,87 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import useBoard from './useBoard';
+import useScore from './useScore';
+import Results from './Results';
 import './QuickColor.scss';
-type Props = {};
 
-type colorCard = {
-  id: number;
-  color: string;
-  isHidden: boolean;
-};
+function QuickColor() {
+  const {
+    colorGrid,
+    text,
+    countDown,
+    nextRoundBtn,
+    resultsBtn,
+    checkMatch,
 
-const getRandomId = (): number => {
-  return Math.floor(Math.random() * 1000000);
-};
+    triggerNextRound,
+  } = useBoard();
+  const { visualMemoryScore, spatialMemoryScore, attentionScore } = useScore();
+  const [showResults, setShowResults] = useState(false);
 
-const generateColorGrid = (): colorCard[] => {
-  const colors = [
-    'red',
-    'blue',
-    'green',
-    'yellow',
-    'purple',
-    'orange',
-    'pink',
-    'brown',
-    'black',
-  ];
-  const colorGrid = colors.map((color) => ({
-    id: getRandomId(),
-    color,
-    isHidden: false,
-  }));
+  useEffect(() => {
+    console.log(
+      `MAIN::: spatial: ${spatialMemoryScore}, visual: ${visualMemoryScore}, attention: ${attentionScore}`
+    );
+  }, [visualMemoryScore, spatialMemoryScore, attentionScore]);
 
-  // Sort the array based on the random id to mix the colors
-  return colorGrid.sort((a, b) => a.id - b.id);
-};
-
-function QuickColor({}: Props) {
-  const [colorGrid, setColorGrid] = React.useState<colorCard[]>([]);
-  const [text, setText] = React.useState<string>('Memorize the colors');
-  const [timer, setTimer] = React.useState(5.0);
-
-  //TODO: Display the grid to the user for a fixed time (e.g., 5 seconds). Use setTimeout to hide the colors after that period.
-
-  React.useEffect(() => {
-    setColorGrid(generateColorGrid());
-  }, []);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer((prevTimer) => {
-        if (prevTimer <= 0) {
-          clearInterval(interval);
-          return 0;
-        }
-        return Number((prevTimer - 0.01).toFixed(2));
-      });
-    }, 10);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  React.useEffect(() => {
-    if (timer <= 0) {
-      setText("Time's up! Try to remember the colors");
-      setColorGrid((prevGrid) =>
-        prevGrid.map((card) => ({
-          ...card,
-          isHidden: true,
-        }))
-      );
-    }
-  }, [timer]);
-
-  return (
+  return showResults ? (
+    <Results />
+  ) : (
     <div className='quick-color-container'>
       <h1>{text}</h1>
-      <p>{timer}</p>
+      {nextRoundBtn && <button onClick={triggerNextRound}>Next Round</button>}
+      {resultsBtn && (
+        <button onClick={() => setShowResults(true)}>Show Results</button>
+      )}
+      <p>{countDown.toFixed(2)}</p>
       <div className='color-grid'>
-        {colorGrid.map((card) => (
-          <div
-            key={card.id}
-            className='color-card'
-            style={{ backgroundColor: card.isHidden ? '#808080' : card.color }}
-          ></div>
+        {colorGrid.map(({ id, color, isHidden }) => (
+          <button
+            key={id}
+            className={`color-card ${isHidden ? 'color-card__hidden' : ''}`}
+            style={{ backgroundColor: isHidden ? '#808080' : color }}
+            onClick={() => checkMatch({ id, color, isHidden })}
+          />
         ))}
       </div>
     </div>

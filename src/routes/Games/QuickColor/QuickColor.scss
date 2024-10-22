@@ -11,6 +11,23 @@
     .color-card {
       width: 100px;
       height: 100px;
+      border-radius: 8px;
+      border: 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      &__hidden {
+        transition: transform 0.15s ease;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+        }
+        &:active {
+          transform: scale(1.05);
+          transition: transform 0.05s ease;
+        }
+      }
     }
   }
 }
