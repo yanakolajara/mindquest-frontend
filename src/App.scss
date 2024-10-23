@@ -10,7 +10,9 @@ html {
 }
 
 .App {
-  display: grid;
-  grid-template-rows: 80px auto;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: row; // Para que el contenido se alinee horizontalmente (Navbar a la izquierda)
+  background-color: yellow;
+  height: 100vh; // Asegurarse de ocupar toda la altura de la ventana
+  width: 100vw;
 }
