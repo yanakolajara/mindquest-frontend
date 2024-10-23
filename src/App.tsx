@@ -4,14 +4,11 @@ import NotFound from './routes/NotFound/NotFound';
 import Home from './routes/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Login from './routes/Login/Login';
-// import Footer from './components/Footer/Footer';
-
 import Community from './routes/Community/Community';
 import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
 import QuickColor from './routes/Games/QuickColor/QuickColor';
-// import Footer from './components/Footer/Footer';
-import './App.scss';
 import ContentWrap from './layout/ContentWrap';
+import './App.scss';
 
 function App() {
   return (
