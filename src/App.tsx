@@ -21,7 +21,6 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
           <Route path='/community' element={<Community />} />
           <Route path='/memory-cards' element={<MemoryCards />} />
           <Route path='/quick-color' element={<QuickColor />} />
