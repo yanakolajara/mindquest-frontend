@@ -9,20 +9,25 @@ import Login from './routes/Login/Login';
 import Community from './routes/Community/Community';
 import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
 import QuickColor from './routes/Games/QuickColor/QuickColor';
+// import Footer from './components/Footer/Footer';
 import './App.scss';
+import ContentWrap from './layout/ContentWrap';
 
 function App() {
   return (
     <div className='App'>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/community' element={<Community />} />
-        <Route path='/memory-cards' element={<MemoryCards />} />
-        <Route path='/quick-color' element={<QuickColor />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      {/* <Navbar /> */}
+      <ContentWrap renderNavbar={() => <Navbar />}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/community' element={<Community />} />
+          <Route path='/memory-cards' element={<MemoryCards />} />
+          <Route path='/quick-color' element={<QuickColor />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </ContentWrap>
       {/* <Footer /> */}
     </div>
   );
