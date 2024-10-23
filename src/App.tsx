@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import NotFound from './routes/NotFound/NotFound';
 import Home from './routes/Home/Home';
 import Navbar from './components/Navbar/Navbar';
+import Login from './routes/Login/Login';
 // import Footer from './components/Footer/Footer';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
+
 import Community from './routes/Community/Community';
 import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
 import QuickColor from './routes/Games/QuickColor/QuickColor';
@@ -18,7 +18,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
         <Route path='/community' element={<Community />} />
         <Route path='/memory-cards' element={<MemoryCards />} />
         <Route path='/quick-color' element={<QuickColor />} />
