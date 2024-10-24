@@ -1,48 +1,56 @@
+// LoginForm.tsx
 import React from 'react';
-import styled from 'styled-components';
+import {
+  Container,
+  Title,
+  Form,
+  InputGroup,
+  Label,
+  InputWrapper,
+  Icon,
+  Input,
+  Button,
+  FooterText,
+  SignUpLink,
+  LoginComponent,
+} from './Login.styles';
 
-type Props = {};
-
-type AuthState = {
-  isAuthenticated: boolean;
-  userData: any;
-};
-
-const LoginComponent = styled.div`
-  display: flex;
-`;
-
-export default function Login({}: Props) {
-  // const { handleLogin } = useAuth();
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const [authState, setAuthState] = React.useState<AuthState>({
-    isAuthenticated: false,
-    userData: {},
-  });
+const Login: React.FC = () => {
   return (
     <LoginComponent>
-      <h1>Login</h1>
-      <div>
-        <form
-          onSubmit={() => {
-            // handleLogin({ email, password })
-          }}
-        >
-          <input
-            type='email'
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-          <input
-            type='password'
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-          <input type='submit' value='test' />
-        </form>
-      </div>
+      <Container>
+        <Title>Log In</Title>
+        <Form>
+          <InputGroup>
+            <Label htmlFor='username'>Username</Label>
+            <InputWrapper>
+              <Icon>👤</Icon>
+              <Input
+                type='text'
+                id='username'
+                placeholder='Type your username'
+              />
+            </InputWrapper>
+          </InputGroup>
+          <InputGroup>
+            <Label htmlFor='password'>Password</Label>
+            <InputWrapper>
+              <Icon>🔒</Icon>
+              <Input
+                type='password'
+                id='password'
+                placeholder='Type your password'
+              />
+            </InputWrapper>
+          </InputGroup>
+          <Button type='submit'>LOGIN</Button>
+          <FooterText>
+            Need a MindQuest account? <SignUpLink href='#'>Sign Up</SignUpLink>
+          </FooterText>
+        </Form>
+      </Container>
     </LoginComponent>
   );
-}
+};
+
+export default Login;
