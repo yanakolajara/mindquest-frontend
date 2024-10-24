@@ -15,12 +15,26 @@ import {
   LoginComponent,
 } from './Login.styles';
 
+type LoginProps = {
+  username: string;
+  password: string;
+};
+
 const Login: React.FC = () => {
+  const [auth, setAuth] = React.useState<LoginProps>({
+    username: '',
+    password: '',
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(auth);
+  };
   return (
     <LoginComponent>
       <Container>
         <Title>Log In</Title>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <InputGroup>
             <Label htmlFor='username'>Username</Label>
             <InputWrapper>
@@ -29,6 +43,8 @@ const Login: React.FC = () => {
                 type='text'
                 id='username'
                 placeholder='Type your username'
+                value={auth.username}
+                onChange={(e) => setAuth({ ...auth, username: e.target.value })}
               />
             </InputWrapper>
           </InputGroup>
@@ -40,10 +56,12 @@ const Login: React.FC = () => {
                 type='password'
                 id='password'
                 placeholder='Type your password'
+                value={auth.password}
+                onChange={(e) => setAuth({ ...auth, password: e.target.value })}
               />
             </InputWrapper>
+            <Button type='submit'>Login</Button>
           </InputGroup>
-          <Button type='submit'>LOGIN</Button>
           <FooterText>
             Need a MindQuest account? <SignUpLink href='#'>Sign Up</SignUpLink>
           </FooterText>

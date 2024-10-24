@@ -60,6 +60,7 @@ export const Input = styled.input`
   outline: none;
   font-size: 14px;
   padding: 5px;
+  background-color: transparent;
 `;
 
 export const Button = styled.button`
@@ -72,7 +73,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 15px;
+  margin-top: 15px;
 `;
 
 export const FooterText = styled.p`
