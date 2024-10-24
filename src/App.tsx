@@ -4,6 +4,7 @@ import NotFound from './routes/NotFound/NotFound';
 import Home from './routes/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Login from './routes/Login/Login';
+import Signup from './routes/Signup/Signup';
 import Community from './routes/Community/Community';
 import MemoryCards from './routes/Games/MemoryCards/MemoryCards';
 import QuickColor from './routes/Games/QuickColor/QuickColor';
@@ -17,6 +18,7 @@ function App() {
       <ContentWrap renderNavbar={() => <Navbar />}>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/community' element={<Community />} />
           <Route path='/memory-cards' element={<MemoryCards />} />

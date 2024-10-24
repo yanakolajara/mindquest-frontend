@@ -1,6 +1,6 @@
 import React from 'react';
-import { loginRequest } from '../../api/api';
 import {
+  SignupComponent, // Cambié LoginComponent por SignupComponent
   Container,
   Title,
   Form,
@@ -12,36 +12,52 @@ import {
   Button,
   FooterText,
   SignUpLink,
-  LoginComponent,
-} from './Login.styles';
+} from './Signup.styles';
+
+import { registerRequest } from '../../api/api'; // Cambié a la función registerRequest
 
 // * -------- Types -------- *
 
-type LoginProps = {
+type SignupProps = {
+  email: string;
   username: string;
   password: string;
 };
 
-// * -------- Login Component -------- *
+// * -------- Signup Component -------- *
 
-const Login: React.FC = () => {
-  const [isNewUser, setIsNewUser] = React.useState(false);
-  const [auth, setAuth] = React.useState<LoginProps>({
+const Signup: React.FC = () => {
+  const [auth, setAuth] = React.useState<SignupProps>({
+    email: '',
     username: '',
     password: '',
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await loginRequest(auth.username, auth.password).then((res) =>
-      console.log(res)
+    await registerRequest(auth.email, auth.username, auth.password).then(
+      (res) => console.log(res)
     );
   };
+
   return (
-    <LoginComponent>
+    <SignupComponent>
       <Container>
-        <Title>Log In</Title>
+        <Title>Create an Account</Title>
         <Form onSubmit={handleSubmit}>
+          <InputGroup>
+            <Label htmlFor='email'>Email</Label>
+            <InputWrapper>
+              <Icon>📧</Icon>
+              <Input
+                type='email'
+                id='email'
+                placeholder='Type your email'
+                value={auth.email}
+                onChange={(e) => setAuth({ ...auth, email: e.target.value })}
+              />
+            </InputWrapper>
+          </InputGroup>
           <InputGroup>
             <Label htmlFor='username'>Username</Label>
             <InputWrapper>
@@ -67,15 +83,16 @@ const Login: React.FC = () => {
                 onChange={(e) => setAuth({ ...auth, password: e.target.value })}
               />
             </InputWrapper>
-            <Button type='submit'>Login</Button>
           </InputGroup>
+          <Button type='submit'>Sign Up</Button>
           <FooterText>
-            Need a MindQuest account? <SignUpLink href='#'>Sign Up</SignUpLink>
+            Already have a MindQuest account?{' '}
+            <SignUpLink href='#'>Log In</SignUpLink>
           </FooterText>
         </Form>
       </Container>
-    </LoginComponent>
+    </SignupComponent>
   );
 };
 
-export default Login;
+export default Signup;
